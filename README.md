@@ -1,1 +1,452 @@
-# ohmymihhh
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Thank You Teacher!</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #ff9a9e;
+            --secondary: #fad0c4;
+            --accent: #ff6b6b;
+            --text: #4a4a4a;
+            --white: #ffffff;
+            --glass: rgba(255, 255, 255, 0.8);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Nunito', sans-serif;
+            background: linear-gradient(135deg, #a18cd1 0%, #fbc2eb 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow-x: hidden;
+            color: var(--text);
+            position: relative;
+        }
+
+        /* Background Floating Particles */
+        .bg-particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: -1;
+        }
+
+        .particle {
+            position: absolute;
+            bottom: -20px;
+            background-color: rgba(255, 255, 255, 0.5);
+            border-radius: 50%;
+            animation: floatUp linear infinite;
+        }
+
+        @keyframes floatUp {
+            0% { transform: translateY(0) scale(1); opacity: 0; }
+            20% { opacity: 0.8; }
+            100% { transform: translateY(-100vh) scale(0.5); opacity: 0; }
+        }
+
+        /* Main Container */
+        .container {
+            text-align: center;
+            width: 90%;
+            max-width: 600px;
+            perspective: 1000px;
+            padding: 20px;
+        }
+
+        /* Screen 1: The Envelope */
+        #intro-screen {
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+
+        .title {
+            font-family: 'Dancing Script', cursive;
+            font-size: 3rem;
+            color: var(--white);
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        .envelope-container {
+            position: relative;
+            width: 300px;
+            height: 200px;
+            margin: 0 auto;
+            cursor: pointer;
+        }
+
+        .envelope {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            background-color: #ff6b6b;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease;
+        }
+        
+        .envelope:hover {
+            transform: scale(1.02);
+        }
+
+        .envelope::before { /* Flap */
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 0;
+            border-left: 150px solid transparent;
+            border-right: 150px solid transparent;
+            border-top: 110px solid #ff8787; /* Lighter red */
+            transform-origin: top;
+            transition: transform 0.6s ease 0.4s;
+            z-index: 3;
+        }
+
+        .envelope::after { /* Pocket */
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 0;
+            border-left: 150px solid #ff5252;
+            border-right: 150px solid #ff5252;
+            border-bottom: 100px solid #ff6b6b;
+            border-top: 100px solid transparent;
+            z-index: 2;
+            border-radius: 0 0 10px 10px;
+        }
+
+        .letter-preview {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            width: 280px;
+            height: 180px;
+            background-color: white;
+            border-radius: 5px;
+            z-index: 1;
+            transition: transform 0.6s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.5rem;
+            color: #555;
+        }
+        
+        .click-hint {
+            margin-top: 30px;
+            color: white;
+            font-size: 1.1rem;
+            opacity: 0.8;
+            animation: fadeIn 1s infinite alternate;
+        }
+
+        /* Screen 2: The Content (Hidden Initially) */
+        #content-screen {
+            display: none;
+            background: var(--glass);
+            backdrop-filter: blur(10px);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            animation: slideUp 0.8s ease-out;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        @keyframes slideUp {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .teacher-img-container {
+            width: 150px;
+            height: 150px;
+            margin: 0 auto 20px;
+            border-radius: 50%;
+            border: 5px solid white;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .teacher-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .message-box h2 {
+            color: var(--accent);
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .message-box p {
+            line-height: 1.6;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+            color: #555;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .gallery-item {
+            height: 100px;
+            background-color: #ddd;
+            border-radius: 8px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.05);
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .back-btn {
+            margin-top: 25px;
+            padding: 10px 30px;
+            background: var(--accent);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.2s;
+            box-shadow: 0 4px 10px rgba(255, 107, 107, 0.3);
+        }
+
+        .back-btn:hover {
+            background: #ff5252;
+            transform: translateY(-2px);
+        }
+
+        /* Music Player Style (Fake) */
+        .music-player {
+            margin-top: 20px;
+            background: rgba(255,255,255,0.5);
+            padding: 10px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .play-btn {
+            width: 30px;
+            height: 30px;
+            background: var(--accent);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 12px;
+            cursor: pointer;
+        }
+
+        .song-info {
+            text-align: left;
+            font-size: 0.9rem;
+        }
+        
+        .progress-bar {
+            height: 4px;
+            width: 100%;
+            background: #ddd;
+            border-radius: 2px;
+            margin-top: 5px;
+        }
+        
+        .progress {
+            height: 100%;
+            width: 40%;
+            background: var(--accent);
+            border-radius: 2px;
+        }
+
+        /* Mobile Tweaks */
+        @media (max-width: 480px) {
+            .title { font-size: 2.2rem; }
+            .envelope-container { width: 260px; height: 170px; }
+            .envelope::before { border-left-width: 130px; border-right-width: 130px; }
+            .envelope::after { border-left-width: 130px; border-right-width: 130px; }
+        }
+
+        /* Open Animation Classes */
+        .envelope.open::before {
+            transform: rotateX(180deg);
+            z-index: 0;
+        }
+        
+        .envelope.open .letter-preview {
+            transform: translateY(-60px);
+            z-index: 2;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Background Particles -->
+    <div class="bg-particles" id="particles"></div>
+
+    <div class="container">
+        
+        <!-- Screen 1: Intro -->
+        <div id="intro-screen">
+            <h1 class="title"> Kính gửi GVCN thân iu </h1>
+            <div class="envelope-container" onclick="openLetter()">
+                <div class="envelope" id="envelope">
+                    <div class="letter-preview">
+                        <p> Tới cô Nguyễn Thị Thùy Dương ❤️</p>
+                    </div>
+                </div>
+            </div>
+            <p class="click-hint"> Nhấn để mở thiệp </p>
+        </div>
+
+        <!-- Screen 2: Content (Hidden initially) -->
+        <div id="content-screen">
+            <div class="teacher-img-container">
+                <!-- REPLACE WITH TEACHER'S IMAGE URL -->
+                <img src="https://img.freepik.com/free-vector/teacher-standing-near-blackboard-holding-stick-isolated-flat-vector-illustration-cartoon-woman-character-near-chalkboard-school-learning-concept_74855-13272.jpg" alt="Teacher" class="teacher-img">
+            </div>
+            
+            <div class="message-box">
+                <h2>Thank You!</h2>
+                <p>
+                    Kính gửi cô Dương, <br>
+                    Thank you for guiding us, inspiring us, and making us what we are today. Your patience and dedication mean the world to us. We are so lucky to have you!
+                </p>
+                <p>
+                    <strong>Happy Teachers' Day!</strong> 🌟
+                </p>
+            </div>
+
+            <!-- Fake Music Player -->
+            <div class="music-player">
+                <div class="play-btn"><i class="fas fa-music"></i></div>
+                <div style="flex:1">
+                    <div class="song-info">Music: A Million Dreams</div>
+                    <div class="progress-bar"><div class="progress"></div></div>
+                </div>
+            </div>
+
+            <!-- Photo Gallery -->
+            <div class="gallery">
+                <!-- REPLACE THESE SRCs WITH YOUR PHOTOS -->
+                <div class="gallery-item"><img src="https://picsum.photos/200/200?random=1" alt="Memory 1"></div>
+                <div class="gallery-item"><img src="https://picsum.photos/200/200?random=2" alt="Memory 2"></div>
+                <div class="gallery-item"><img src="https://picsum.photos/200/200?random=3" alt="Memory 3"></div>
+            </div>
+
+            <button class="back-btn" onclick="resetEnvelope()">Close Letter</button>
+        </div>
+
+    </div>
+
+    <script>
+        // Create floating particles
+        function createParticles() {
+            const container = document.getElementById('particles');
+            const particleCount = 20;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.classList.add('particle');
+                
+                // Randomize size and position
+                const size = Math.random() * 15 + 5;
+                particle.style.width = `${size}px`;
+                particle.style.height = `${size}px`;
+                particle.style.left = `${Math.random() * 100}%`;
+                
+                // Randomize animation duration
+                const duration = Math.random() * 10 + 5;
+                particle.style.animationDuration = `${duration}s`;
+                particle.style.animationDelay = `${Math.random() * 5}s`;
+                
+                container.appendChild(particle);
+            }
+        }
+
+        createParticles();
+
+        // Open Letter Logic
+        function openLetter() {
+            const envelope = document.getElementById('envelope');
+            const introScreen = document.getElementById('intro-screen');
+            const contentScreen = document.getElementById('content-screen');
+
+            // 1. Animate Envelope
+            envelope.classList.add('open');
+
+            // 2. Wait for animation, then switch screens
+            setTimeout(() => {
+                introScreen.style.opacity = '0';
+                introScreen.style.transform = 'scale(0.8)';
+                
+                setTimeout(() => {
+                    introScreen.style.display = 'none';
+                    contentScreen.style.display = 'block';
+                    
+                    // Optional: Play confetti sound or visual here
+                }, 400);
+            }, 1200); // Wait 1.2s for envelope open animation
+        }
+
+        // Reset Logic
+        function resetEnvelope() {
+            const envelope = document.getElementById('envelope');
+            const introScreen = document.getElementById('intro-screen');
+            const contentScreen = document.getElementById('content-screen');
+
+            contentScreen.style.display = 'none';
+            introScreen.style.display = 'block';
+            
+            setTimeout(() => {
+                introScreen.style.opacity = '1';
+                introScreen.style.transform = 'scale(1)';
+                envelope.classList.remove('open');
+            }, 100);
+        }
+    </script>
+</body>
+</html>
