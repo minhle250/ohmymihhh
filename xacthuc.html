@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>🏮 Bảo mật 2 lớp | An Toàn Số</title>
+    <link rel="stylesheet" href="antoanso.css">
+  </head>
+
+  <body>
+    <header class="header-bg">
+      <h1> BẢO MẬT 2 LỚP (2FA) </h1>
+      <p> "Chìa khóa thứ hai" bảo vệ tài khoản </p>
+    </header>
+
+    <nav>
+      <a href="antoanso.html"> Trang chủ </a>
+      <a href="matkhau.html"> Mật khẩu </a>
+      <a href="mangxahoi.html"> Mạng xã hội </a>
+      <a href="publicwifi.html"> Wifi công cộng </a>
+      <a href="xacthuc.html"> Bảo mật 2 lớp </a>
+    </nav>
+
+    <div class="container">
+        
+        <section class="main-content">
+            <h2>🛡️ Tại sao mật khẩu thôi là chưa đủ?</h2>
+            <p>
+                Mật khẩu dù mạnh đến đâu cũng có thể bị lộ (do web bị hack hoặc m lỡ nhập vào web giả mạo). 
+                <strong>2FA (Xác thực 2 yếu tố)</strong> chính là chốt chặn cuối cùng. Kể cả Hacker có mật khẩu của m, hắn cũng khóc thét vì không có chiếc điện thoại của m để lấy mã.
+            </p>
+
+            <img src="https://images.unsplash.com/photo-1614064642639-e388f4f504c1?q=80&w=2000&auto=format&fit=crop" alt="Two Factor Authentication" style="width: 100%; border-radius: 15px; display: block; margin: 20px 0;">
+
+            <h3>⚙️ 3 Bước thiết lập quan trọng:</h3>
+            <ul>
+                <li>
+                    <strong>Ưu tiên dùng App (Google Authenticator):</strong> 
+                    <br>Nhiều bạn dùng SMS để nhận mã, nhưng SIM điện thoại có thể bị hack (SIM Swap). Dùng App tạo mã an toàn hơn nhiều vì nó nằm offline trong máy m.
+                </li>
+                <li>
+                    <strong>Mã dự phòng (Backup Codes):</strong> 
+                    <br>Đây là "Phao cứu sinh". Khi m mất điện thoại, chỉ có bộ mã này mới giúp m đăng nhập lại được. Hãy in ra hoặc chép vào sổ tay cất kỹ.
+                </li>
+                <li>
+                    <strong>Bật cho mọi thứ:</strong> 
+                    <br>Đừng lười! Hãy bật 2FA cho Facebook, Gmail, Instagram và quan trọng nhất là Tài khoản ngân hàng / Ví điện tử.
+                </li>
+            </ul>
+            
+            <p style="text-align: center; font-style: italic; color: #5d4037; background-color: #f5f2eb; padding: 15px; border-radius: 10px; margin-top: 20px;">
+                "Thà tốn thêm 5 giây nhập mã, còn hơn mất 5 năm gầy dựng tài khoản."
+            </p>
+        </section>
+
+        <aside class="sidebar">
+            
+            <a href="https://bocongan.gov.vn/" target="_blank" class="bca-preview">
+                <div class="browser-bar">
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+                    <span style="font-size: 10px; color: #666; margin-left: 5px;">bocongan.gov.vn</span>
+                </div>
+                
+                <img src="vietnam.jpg" alt="Giao diện Web BCA" width="auto">
+                
+                <div class="hover-text">BẤM ĐỂ TRUY CẬP CỔNG TTĐT ↗</div>
+            </a>
+
+            <img src="https://upload.wikimedia.org/wikipedia/en/thumb/2/24/Vietnam_People%27s_Insignia_emblem.svg/1280px-Vietnam_People%27s_Insignia_emblem.svg.png" alt="Công An Hiệu" class="police-badge">
+            
+            <h3>CỔNG THÔNG TIN ĐIỆN TỬ<br>BỘ CÔNG AN</h3>
+            <p style="font-size: 13px;">Kênh chính thống cập nhật tin tức an ninh trật tự và cảnh báo tội phạm công nghệ cao.</p>
+            
+            <hr style="margin: 20px 0; border: 0; border-top: 1px solid #ccc;">
+            
+            <div style="text-align: left;">
+                <p style="font-weight: bold; margin-bottom: 5px; color: #5d4037; font-size: 14px;">🔗 Liên kết tham khảo:</p>
+                <a href="https://khonggianmang.vn/" target="_blank" style="color: #0056b3; text-decoration: none; font-size: 13px; display: block; margin-bottom: 8px;">
+                    🛡️ KhongGianMang.vn (NCSC)
+                </a>
+                <a href="https://vn-cert.vn/" target="_blank" style="color: #0056b3; text-decoration: none; font-size: 13px; display: block;">
+                    🚨 Ứng cứu sự cố (VNCERT)
+                </a>
+            </div>
+        </aside>
+
+    </div> 
+    <footer>
+      <h3>&copy; 2026 - Tin học 12. Design by <strong><a href="https://www.instagram.com/starlinetouren/" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: none;">ohmymihhh</a></strong>.</h3>
+      <div id="clock" style="font-family: monospace; font-size: 16px; margin-top: 10px;"></div>
+      <script>
+        function updateTime() {
+          const now = new Date();
+          document.getElementById("clock").innerText = now.toLocaleString('vi-VN'); 
+        }
+        setInterval(updateTime, 1000);
+        updateTime(); 
+      </script>
+    </footer>
+  </body>
+</html>

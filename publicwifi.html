@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>🕯️ Wifi công cộng | An Toàn Số</title>
+    <link rel="stylesheet" href="antoanso.css">
+  </head>
+
+  <body>
+    <header class="header-bg">
+      <h1> CẠM BẪY WIFI "CHÙA" </h1>
+      <p> Tiện lợi thì có, nhưng an toàn thì KHÔNG </p>
+    </header>
+
+    <nav>
+      <a href="antoanso.html"> Trang chủ </a>
+      <a href="matkhau.html"> Mật khẩu </a>
+      <a href="mangxahoi.html"> Mạng xã hội </a>
+      <a href="publicwifi.html"> Wifi công cộng </a>
+      <a href="xacthuc.html"> Bảo mật 2 lớp </a>
+    </nav>
+
+    <div class="container">
+        
+        <section class="main-content">
+            <h2>☕ Wifi quán Cafe có "chill" như m nghĩ?</h2>
+            <p>
+                Tưởng tượng m đang thì thầm bí mật với bạn thân, nhưng có một thằng lạ mặt đứng ngay giữa nghe hết mọi thứ. 
+                Đó chính là cách tấn công <strong>Man-in-the-Middle (Kẻ đứng giữa)</strong> thường thấy ở các mạng Wifi công cộng không có mật khẩu.
+            </p>
+
+            <img src="https://images.unsplash.com/photo-1520333789090-1afc82db536a?q=80&w=2000&auto=format&fit=crop" alt="Wifi Cafe Danger" style="width: 100%; border-radius: 15px; display: block; margin: 20px 0;">
+
+            <h3>🚫 Quy tắc "3 KHÔNG" bất di bất dịch:</h3>
+            <ul>
+                <li>
+                    <strong>1. KHÔNG giao dịch tiền bạc:</strong> 
+                    Tuyệt đối không chuyển khoản, mua hàng Shopee hay đăng nhập Ví điện tử khi đang dùng Wifi lạ. Hãy tắt Wifi và bật 4G lên!
+                </li>
+                <li>
+                    <strong>2. KHÔNG "Tự động kết nối":</strong> 
+                    Tắt tính năng <i>Auto-connect</i> trên điện thoại. Nếu không, máy m sẽ tự động chui vào các mạng Wifi giả mạo (Evil Twin) mà m không hề hay biết.
+                </li>
+                <li>
+                    <strong>3. KHÔNG quên "tấm khiên" VPN:</strong> 
+                    Nếu bắt buộc phải dùng Wifi công cộng để học bài, hãy bật VPN (như <i>1.1.1.1</i> hoặc <i>NordVPN</i>). Nó giúp mã hóa dữ liệu, biến m thành "người tàng hình".
+                </li>
+            </ul>
+        </section>
+
+        <aside class="sidebar">
+            
+            <a href="https://bocongan.gov.vn/" target="_blank" class="bca-preview">
+                <div class="browser-bar">
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+                    <span style="font-size: 10px; color: #666; margin-left: 5px;">bocongan.gov.vn</span>
+                </div>
+                
+                <img src="vietnam.jpg" alt="Giao diện Web BCA" width="auto">
+                
+                <div class="hover-text">BẤM ĐỂ TRUY CẬP CỔNG TTĐT ↗</div>
+            </a>
+
+            <img src="https://upload.wikimedia.org/wikipedia/en/thumb/2/24/Vietnam_People%27s_Insignia_emblem.svg/1280px-Vietnam_People%27s_Insignia_emblem.svg.png" alt="Công An Hiệu" class="police-badge">
+            
+            <h3>CỔNG THÔNG TIN ĐIỆN TỬ<br>BỘ CÔNG AN</h3>
+            <p style="font-size: 13px;">Kênh chính thống cập nhật tin tức an ninh trật tự và cảnh báo tội phạm công nghệ cao.</p>
+            
+            <hr style="margin: 20px 0; border: 0; border-top: 1px solid #ccc;">
+            
+            <div style="text-align: left;">
+                <p style="font-weight: bold; margin-bottom: 5px; color: #5d4037; font-size: 14px;">🔗 Liên kết tham khảo:</p>
+                <a href="https://khonggianmang.vn/" target="_blank" style="color: #0056b3; text-decoration: none; font-size: 13px; display: block; margin-bottom: 8px;">
+                    🛡️ KhongGianMang.vn (NCSC)
+                </a>
+                <a href="https://vn-cert.vn/" target="_blank" style="color: #0056b3; text-decoration: none; font-size: 13px; display: block;">
+                    🚨 Ứng cứu sự cố (VNCERT)
+                </a>
+            </div>
+        </aside>
+
+    </div> 
+    <footer>
+      <h3>&copy; 2026 - Tin học 12. Design by <strong><a href="https://www.instagram.com/starlinetouren/" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: none;">ohmymihhh</a></strong>.</h3>
+      <div id="clock" style="font-family: monospace; font-size: 16px; margin-top: 10px;"></div>
+      <script>
+        function updateTime() {
+          const now = new Date();
+          document.getElementById("clock").innerText = now.toLocaleString('vi-VN'); 
+        }
+        setInterval(updateTime, 1000);
+        updateTime(); 
+      </script>
+    </footer>
+  </body>
+</html>
