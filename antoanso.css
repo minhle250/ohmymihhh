@@ -1,0 +1,232 @@
+/* --- 1. KHAI BÁO BIẾN (DESIGN SYSTEM) --- 
+   Đây là bảng màu chung. Muốn đổi màu web, chỉ cần sửa ở đây là tự động ăn hết toàn web.
+*/
+:root {
+    --primary-color: #5d4037;   /* Nâu Cafe (Chủ đạo) */
+    --accent-color: #8d6e63;    /* Nâu Hồng (Nhấn) */
+    --highlight: #d90429;       /* Đỏ cờ (Nút quan trọng) */
+    --text-color: #4a4a4a;      /* Xám đậm (Chữ) */
+    --bg-color: #f5f2eb;        /* Kem ấm (Nền web) */
+    --white: #ffffff;
+    --radius-box: 30px;         /* Độ bo góc chuẩn */
+    --shadow: 0 10px 30px rgba(93, 64, 55, 0.1); /* Bóng đổ chuẩn */
+}
+
+/* --- 2. CẤU TRÚC CHUNG (RESET) --- */
+body {
+    margin: 0;
+    background-color: var(--bg-color); /* Gọi biến màu ra dùng */
+    font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+/* --- 3. HEADER (ĐẦU TRANG) --- */
+header {
+    text-align: center;
+    padding: 60px 20px 80px; /* Top - Side - Bottom */
+    
+    /* Ảnh nền ưu tiên (nếu lỗi ảnh thì hiện màu gradient) */
+    background: url("beige.jpg") center/cover no-repeat, 
+                linear-gradient(135deg, #e6dedd 0%, #d7ccc8 100%);
+    
+    /* Bo góc dưới */
+    border-bottom-left-radius: 50px;
+    border-bottom-right-radius: 50px;
+    box-shadow: var(--shadow);
+    margin-bottom: -50px; /* Kỹ thuật âm margin để Menu đè lên */
+}
+
+h1 {
+    font-size: 42px;
+    font-weight: 800;
+    color: var(--primary-color);
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: -0.5px;
+}
+
+header p {
+    color: var(--accent-color);
+    font-size: 16px;
+    font-weight: 500;
+    margin-top: 10px;
+}
+
+/* --- 4. MENU (NAVIGATION) --- */
+nav {
+    display: flex;             /* Dàn nút nằm ngang */
+    justify-content:center;   /* Canh giữa */
+    background-color: var(--white);
+    width:fit-content;        /* Ôm sát nội dung */
+    margin: 0 auto 50px;
+    padding: 10px 15px;
+    border-radius: 100px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    position: relative;        /* Nổi lên trên Header */
+    z-index: 10;
+}
+
+nav a {
+    text-decoration: none;
+    color: #000;
+    margin: 0 5px;
+    padding: 10px 20px;
+    font-weight: 600;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+}
+
+nav a:hover {
+    background-color: var(--primary-color);
+    color: var(--white);
+    transform: translateY(-2px);
+}
+
+/* --- 5. BỐ CỤC CHIA CỘT (LAYOUT) --- */
+.container {
+    display: flex;             /* Bật chế độ cột */
+    width: 1000px;
+    margin: 0 auto 60px;       /* Canh giữa màn hình */
+    gap: 30px;                 /* Khoảng cách 2 cột */
+    align-items: flex-start;
+}
+
+/* CỘT TRÁI (Nội dung) */
+.main-content {
+    flex: 2;                   /* Chiếm 2 phần */
+    background-color: var(--white);
+    padding: 40px;
+    border-radius: var(--radius-box);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+}
+
+/* CỘT PHẢI (Sidebar Công An) */
+.sidebar {
+    flex: 1;                   /* Chiếm 1 phần */
+    background: linear-gradient(180deg, #fff 0%, #f9f9f9 100%);
+    padding: 40px;
+    border-radius: var(--radius-box);
+    border: 1px solid #e0e0e0;
+    text-align: center;
+    position: sticky;          /* Dính khi cuộn */
+    top: 20px;
+}
+
+.sidebar img {
+    width: 100%;
+    height: auto;
+}
+
+/* --- 6. TRANG TRÍ NỘI DUNG --- */
+/* Tiêu đề con */
+.main-content h2 {
+    color: var(--accent-color);
+    border-left: 5px solid var(--primary-color);
+    padding-left: 15px;
+    margin-top: 0;
+}
+
+.main-content h3 { color: var(--primary-color); margin-top: 30px; }
+
+/* Ảnh */
+.main-content img {
+    width: 100%;
+    border-radius: 20px;
+    transition: transform 0.3s;
+}
+.main-content img:hover { transform: scale(1.02); }
+
+/* Nút Công An */
+.btn-police {
+    display: inline-block;
+    background-color: var(--highlight);
+    color: #ffda00;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 50px;
+    font-weight: bold;
+    margin-top: 10px;
+    transition: 0.3s;
+}
+.btn-police:hover { transform: scale(1.05); box-shadow: 0 5px 15px rgba(217, 4, 41, 0.3); }
+.police-badge { width: 70px; margin-bottom: 10px; }
+
+/* --- 7. FOOTER --- */
+footer {
+    text-align: center;
+    padding: 20px 0;
+    color: var(--accent-color);
+    background: url("60+ Marble Texture Aesthetic Backgrounds (Free Download, High-Res).jpg") center/cover;
+    border-radius: 30px 30px 0 0;
+}
+
+strong {
+    color: var(--primary-color); /* Chữ màu nâu */
+    padding: 2px 5px; /* Tạo khoảng hở tí cho đẹp */
+    border-radius: 4px; /* Bo góc nhẹ */
+}
+
+/* --- KHUNG PREVIEW WEB BỘ CÔNG AN --- */
+.bca-preview {
+    display: block; /* Để thẻ a bao trùm khối */
+    width: 100%;
+    height: 180px; /* Chiều cao khung ảnh */
+    background-color: #fff;
+    border-radius: 15px;
+    overflow: hidden; /* Cắt ảnh thừa */
+    border: 1px solid #ddd;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    position: relative; /* Để căn chỉnh lớp phủ */
+    margin-bottom: 20px; /* Cách tiêu đề bên dưới ra */
+    transition: transform 0.3s ease;
+    text-decoration: none;
+}
+
+/* Hiệu ứng bay lên khi di chuột */
+.bca-preview:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(217, 4, 41, 0.2); /* Bóng màu đỏ công an */
+}
+
+/* Thanh giả lập trình duyệt (Mấy chấm đỏ vàng xanh) */
+.browser-bar {
+    height: 25px;
+    background: #f0f0f0;
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+    gap: 6px;
+    border-bottom: 1px solid #ccc;
+}
+
+.dot { width: 8px; height: 8px; border-radius: 50%; }
+.dot.red { background: #ff5f57; }
+.dot.yellow { background: #ffbd2e; }
+.dot.green { background: #27c93f; }
+
+/* Ảnh chụp màn hình web */
+.bca-preview img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Cắt ảnh cho vừa khung */
+    object-position: top; /* Luôn lấy phần đầu trang web */
+}
+
+/* Chữ "Truy cập" hiện lên khi hover */
+.hover-text {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    background: rgba(217, 4, 41, 0.9); /* Màu đỏ mờ */
+    color: white;
+    text-align: center;
+    padding: 8px;
+    font-size: 12px;
+    font-weight: bold;
+    opacity: 0; /* Mặc định ẩn */
+    transition: opacity 0.3s;
+}
+
+.bca-preview:hover .hover-text {
+    opacity: 1; /* Hiện khi di chuột */
+}
